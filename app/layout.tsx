@@ -1,10 +1,16 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import { securityAuditMetadata } from "@/lib/security-audit-meta";
 
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   title: "Tezcatli",
   description: "Reduce your onchain signal.",
 };
+
+export async function generateMetadata(): Promise<Metadata> {
+  const auditMeta = securityAuditMetadata();
+  return auditMeta ? { ...baseMetadata, ...auditMeta } : baseMetadata;
+}
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
