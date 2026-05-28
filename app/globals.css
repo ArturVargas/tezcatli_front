@@ -116,6 +116,40 @@ ul {
   color: var(--white);
 }
 
+.landing-dark-band {
+  display: grid;
+  gap: 0;
+  border: 1px solid rgba(121, 215, 168, 0.15);
+  border-radius: var(--radius-panel);
+  overflow: hidden;
+  box-shadow: 0 8px 18px rgba(7, 61, 50, 0.06);
+}
+
+.landing-dark-band .landing-section-dark {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.landing-dark-band-quotes {
+  gap: 18px;
+  padding: 28px 30px 26px;
+}
+
+.landing-dark-band-usage {
+  gap: 22px;
+  padding: 28px 30px 32px;
+  border-top: 1px solid rgba(121, 215, 168, 0.14);
+}
+
+.landing-dark-band-quotes .section-copy-dark {
+  gap: 10px;
+}
+
+.landing-dark-band-quotes .quote-grid {
+  gap: 14px;
+}
+
 .landing-hero {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
@@ -153,6 +187,18 @@ ul {
 .hero-actions-left {
   justify-content: flex-start;
   flex-wrap: wrap;
+}
+
+.landing-hero-cta-block {
+  display: grid;
+  gap: 10px;
+}
+
+.landing-hero-cta-note {
+  max-width: 28rem;
+  color: rgba(232, 243, 236, 0.82);
+  font-size: 0.92rem;
+  line-height: 1.5;
 }
 
 .eyebrow-light,
@@ -1178,6 +1224,16 @@ ul {
   .landing-hero,
   .landing-final {
     padding: 22px;
+  }
+
+  .landing-dark-band-quotes {
+    gap: 16px;
+    padding: 22px 22px 20px;
+  }
+
+  .landing-dark-band-usage {
+    gap: 18px;
+    padding: 24px 22px 26px;
   }
 
   .wallet-mockup,

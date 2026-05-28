@@ -114,17 +114,20 @@ export default function LandingPage() {
       <section className="landing-hero">
         <div className="landing-hero-copy">
           <p className="eyebrow eyebrow-light landing-wordmark">z0tz</p>
-          <h1>The simpler and safer way to use digital dollars in LatAm</h1>
+          <h1>It&apos;s not a crypto wallet. It&apos;s a dollar account.</h1>
           <p className="landing-hero-lede">
-            Use USDC without dealing with gas, seed phrases, or public exposure.
+            Use your USDC with the simplicity of a fintech app. No gas fees, no
+            seed phrases, no public history. Just dollars.
           </p>
-          <div className="hero-actions hero-actions-left">
-            <Link className="primary-button prominent-button landing-hero-cta" href="/scan">
-              Get early access
-            </Link>
-            <a className="ghost-button landing-hero-secondary" href="#how-it-works">
-              See how it works
-            </a>
+          <div className="landing-hero-cta-block">
+            <div className="hero-actions hero-actions-left">
+              <Link className="primary-button prominent-button landing-hero-cta" href="/scan">
+                Get early access
+              </Link>
+            </div>
+            <p className="landing-hero-cta-note">
+              Join the waitlist and get a $5 USDC trial balance.
+            </p>
           </div>
         </div>
 
@@ -231,7 +234,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section className="landing-section" id="how-it-works">
+      <section className="landing-section">
         <div className="section-copy">
           <p className="eyebrow">Product benefits</p>
           <h2>A better way to hold and move your money</h2>
@@ -248,56 +251,72 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section className="landing-section landing-section-dark">
-        <div className="section-copy section-copy-dark">
-          <p className="eyebrow eyebrow-light">Built for real usage</p>
-          <h2>Designed for people who already use stablecoins in daily life.</h2>
-          <p className="lede lede-light">
-            z0tz is built for people who use USDC to get paid, send money, and
-            store value in digital dollars.
-          </p>
-        </div>
-
-        <div className="usage-layout">
-          <div className="usage-cards">
-            {useCases.map((item, index) => (
-              <article
-                key={item.title}
-                className={`usage-card${index === 0 ? " usage-card-active" : ""}`}
-              >
-                <h3>{item.title}</h3>
-                <p>{item.meta}</p>
+      <div className="landing-dark-band">
+        <section className="landing-section landing-section-dark landing-dark-band-quotes">
+          <div className="section-copy section-copy-dark">
+            <p className="eyebrow eyebrow-light">Why people switch</p>
+            <h2>Reasons that sound human, not technical.</h2>
+          </div>
+          <div className="quote-grid">
+            {switchReasons.map(reason => (
+              <article key={reason} className="quote-card">
+                <p>{reason}</p>
               </article>
             ))}
           </div>
+        </section>
 
-          <article className="activity-mockup">
-            <div className="wallet-topline">
-              <p className="eyebrow eyebrow-light">Digital dollar balance</p>
-              <span className="wallet-status">Protected</span>
-            </div>
-            <strong className="activity-balance">1,320.00 USDC</strong>
-            <div className="activity-badges">
-              {activityBadges.map(item => (
-                <span key={item}>{item}</span>
+        <section className="landing-section landing-section-dark landing-dark-band-usage">
+          <div className="section-copy section-copy-dark">
+            <p className="eyebrow eyebrow-light">Built for real usage</p>
+            <h2>Designed for people who already use stablecoins in daily life.</h2>
+            <p className="lede lede-light">
+              z0tz is built for people who use USDC to get paid, send money, and
+              store value in digital dollars.
+            </p>
+          </div>
+
+          <div className="usage-layout">
+            <div className="usage-cards">
+              {useCases.map((item, index) => (
+                <article
+                  key={item.title}
+                  className={`usage-card${index === 0 ? " usage-card-active" : ""}`}
+                >
+                  <h3>{item.title}</h3>
+                  <p>{item.meta}</p>
+                </article>
               ))}
             </div>
-            <div className="activity-feed">
-              {recentActivity.map(item => (
-                <div key={`${item.type}-${item.amount}`} className="activity-row">
-                  <div>
-                    <span>{item.type}</span>
-                    <p>{item.meta}</p>
+
+            <article className="activity-mockup">
+              <div className="wallet-topline">
+                <p className="eyebrow eyebrow-light">Digital dollar balance</p>
+                <span className="wallet-status">Protected</span>
+              </div>
+              <strong className="activity-balance">1,320.00 USDC</strong>
+              <div className="activity-badges">
+                {activityBadges.map(item => (
+                  <span key={item}>{item}</span>
+                ))}
+              </div>
+              <div className="activity-feed">
+                {recentActivity.map(item => (
+                  <div key={`${item.type}-${item.amount}`} className="activity-row">
+                    <div>
+                      <span>{item.type}</span>
+                      <p>{item.meta}</p>
+                    </div>
+                    <strong>{item.amount}</strong>
                   </div>
-                  <strong>{item.amount}</strong>
-                </div>
-              ))}
-            </div>
-          </article>
-        </div>
-      </section>
+                ))}
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
 
-      <section className="landing-section">
+      <section className="landing-section" id="how-it-works">
         <div className="section-copy">
           <p className="eyebrow">How it works</p>
           <h2>Three steps. Less anxiety.</h2>
@@ -329,7 +348,7 @@ export default function LandingPage() {
           </p>
           <div className="hero-actions hero-actions-left">
             <Link className="primary-button prominent-button" href="/scan">
-              Start now
+              Get early access
             </Link>
           </div>
           <p className="trial-helper">Limited early access</p>
@@ -386,20 +405,6 @@ export default function LandingPage() {
               <span className="check-mark">✓</span>
               <span>{item}</span>
             </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="landing-section landing-section-dark">
-        <div className="section-copy section-copy-dark">
-          <p className="eyebrow eyebrow-light">Why people switch</p>
-          <h2>Reasons that sound human, not technical.</h2>
-        </div>
-        <div className="quote-grid">
-          {switchReasons.map(reason => (
-            <article key={reason} className="quote-card">
-              <p>{reason}</p>
-            </article>
           ))}
         </div>
       </section>
